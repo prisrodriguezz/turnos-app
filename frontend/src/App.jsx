@@ -1,11 +1,8 @@
+import AppRouter from "./rutas/AppRouter"
 
 function App() {
 
-  return (
-    <>
-      <h1>Sistema de Gestión de Turnos</h1>
-    </>
-  )
+  return <AppRouter/>
 }
 
 export default App

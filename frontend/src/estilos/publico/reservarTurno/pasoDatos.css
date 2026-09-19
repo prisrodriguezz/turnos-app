@@ -1,0 +1,79 @@
+.paso-datos {
+  width: 100%;
+}
+
+.datos-formulario {
+  width: 100%;
+}
+
+.datos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+.campo input::placeholder {
+  color: var(--color-text-light);
+}
+
+.campo input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+
+/* =========================================================
+   ERRORES
+========================================================= */
+
+.campo input.campo-error {
+  border-color: #dc2626;
+}
+
+.campo input.campo-error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.mensaje-error {
+  color: #dc2626;
+  font-size: var(--font-size-xs);
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+  .datos-grid {
+    grid-template-columns: 1fr;
+  }
+}

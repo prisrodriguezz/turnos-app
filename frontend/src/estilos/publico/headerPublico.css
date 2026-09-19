@@ -1,0 +1,351 @@
+/* =========================================
+   HEADER
+========================================= */
+
+.header-publico {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(255, 248, 247, 0.95);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid var(--color-border);
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.header-contenido {
+    max-width: var(--container-width);
+
+    height: 80px;
+
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+
+    display: flex;
+    align-items: center;
+
+    gap: 40px;
+
+    position: relative;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo a {
+    display: block;
+
+    color: var(--color-text);
+
+    font-size: 2.6rem;
+    font-weight: 700;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+
+/* =========================================
+   NAVEGACIÓN DESKTOP
+========================================= */
+
+.nav-desktop {
+    display: flex;
+    align-items: center;
+
+    gap: 2.5rem;
+
+    margin-left: auto;
+}
+
+.nav-desktop a {
+    position: relative;
+
+    color: var(--color-text-secondary);
+
+    text-decoration: none;
+
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    transition: color 0.3s ease;
+}
+
+.nav-desktop a:hover {
+    color: var(--color-primary);
+}
+
+
+/* Línea debajo del link */
+
+.nav-desktop a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--color-primary);
+
+    transition: width 0.3s ease;
+}
+
+.nav-desktop a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================
+   HAMBURGUESA
+========================================= */
+
+.menu-btn {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+
+    margin-left: auto;
+
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.menu-btn span {
+    display: block;
+
+    width: 24px;
+    height: 2px;
+
+    background: var(--color-text);
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* Animación hamburguesa -> X */
+
+.menu-btn.abierto span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-btn.abierto span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.abierto span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================
+   MENÚ MOBILE
+========================================= */
+
+.nav-mobile {
+    display: none;
+}
+
+
+/* =========================================
+   HEADER - RESERVA
+========================================= */
+
+.header-publico--reserva .header-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* Botón volver al inicio */
+
+.header-volver {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--color-text-secondary);
+
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.header-volver:hover {
+    color: var(--color-primary);
+
+    transform: translateX(-2px);
+}
+
+
+/* Logo del header de reserva */
+
+.header-publico--reserva .logo {
+    margin-left: auto;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .header-contenido {
+        height: 70px;
+
+        padding: 0 20px;
+    }
+
+
+    /* =====================================
+       NAVEGACIÓN DESKTOP
+    ===================================== */
+
+    .nav-desktop {
+        display: none;
+    }
+
+
+    /* =====================================
+       BOTÓN DESKTOP
+    ===================================== */
+
+    .btn-desktop {
+        display: none;
+    }
+
+
+    /* =====================================
+       HAMBURGUESA
+    ===================================== */
+
+    .menu-btn {
+        display: flex;
+    }
+
+
+    /* =====================================
+       MENÚ MOBILE
+    ===================================== */
+
+    .nav-mobile {
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px 20px;
+
+        background: var(--color-surface);
+
+        border-bottom: 1px solid var(--color-border);
+
+        box-shadow: var(--shadow-md);
+
+        display: none;
+
+        flex-direction: column;
+        align-items: center;
+
+        gap: 22px;
+    }
+
+
+    /* Menú abierto */
+
+    .nav-mobile.abierta {
+        display: flex;
+    }
+
+
+    /* Links mobile */
+
+    .nav-mobile a {
+        color: var(--color-text-secondary);
+
+        text-decoration: none;
+
+        font-weight: 500;
+
+        transition: color 0.3s ease;
+    }
+
+    .nav-mobile a:hover {
+        color: var(--color-primary);
+    }
+
+
+    /* Botón reservar dentro del menú */
+
+    .nav-mobile .btn {
+        margin-top: 5px;
+    }
+
+
+    /* =====================================
+       HEADER DE RESERVA - MOBILE
+    ===================================== */
+
+    .header-publico--reserva .header-contenido {
+        height: 70px;
+
+        padding: 0 20px;
+    }
+
+    .header-volver {
+        font-size: var(--font-size-xs);
+    }
+
+    .header-publico--reserva .logo {
+        margin-left: auto;
+    }
+}

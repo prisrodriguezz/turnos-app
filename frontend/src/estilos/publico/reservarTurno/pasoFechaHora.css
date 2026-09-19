@@ -1,0 +1,156 @@
+.paso-fecha-hora {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   PROFESIONAL SELECCIONADO
+--------------------------------------------------------- */
+
+.fecha-profesional {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--color-primary-light);
+}
+
+.fecha-profesional span {
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+}
+
+.fecha-profesional strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
+
+
+/* ---------------------------------------------------------
+   SELECTOR DE FECHA
+--------------------------------------------------------- */
+
+.fecha-selector {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-xs);
+
+  margin-bottom: var(--space-lg);
+}
+
+.fecha-selector label {
+  color: var(--color-text);
+
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.fecha-selector input {
+  width: 100%;
+
+  padding: 12px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--color-background);
+
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+
+  transition: var(--transition);
+}
+
+.fecha-selector input:focus {
+  outline: none;
+
+  border-color: var(--color-primary);
+
+  box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+
+/* ---------------------------------------------------------
+   HORARIOS
+--------------------------------------------------------- */
+
+.horarios-selector {
+  margin-top: var(--space-lg);
+}
+
+.horarios-selector h3 {
+  margin: 0 0 var(--space-md);
+
+  color: var(--color-text);
+  font-size: var(--font-size-md);
+}
+
+.horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: var(--space-sm);
+}
+
+.horario-card {
+  padding: 12px 8px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--color-background);
+
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.horario-card:hover {
+  border-color: var(--color-primary);
+
+  background: var(--color-primary-light);
+
+  color: var(--color-primary);
+
+  transform: translateY(-1px);
+}
+
+.horario-card.seleccionado {
+  border-color: var(--color-primary);
+
+  background: var(--color-primary);
+
+  color: var(--color-white);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .horarios-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 380px) {
+  .horarios-grid {
+    grid-template-columns: 1fr;
+  }
+}
